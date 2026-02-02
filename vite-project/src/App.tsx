@@ -1,25 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-type CounterProps = {
-  label: string;
-};
+function App() {
+  // Counter state
+  const [count, setCount] = useState(0);
 
-function Counter({ label }: CounterProps) {
-  const [count, setCount] = useState<number>(0);
+  // Timer state
+  const [seconds, setSeconds] = useState(0);
+
+  // Timer effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+
+    // Cleanup when App unmounts
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
-      <h2>{label}: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <h1>Day 2 Practice</h1>
+
+      {/* Counter */}
+      <button onClick={() => setCount(count + 1)}>
+        Count: {count}
+      </button>
+
+      {/* Timer */}
+      <h2>Timer: {seconds} seconds</h2>
     </div>
   );
 }
 
-export default function App() {
-  return (
-    <div>
-      <h1>Day 1: React + TS Fundamentals</h1>
-      <Counter label="Click Count" />
-    </div>
-  );
-}
+export default App;
