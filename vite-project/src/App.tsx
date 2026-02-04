@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Counter from "./components/Counter";
 import Timer from "./components/Timer";
 import LoginForm from "./components/LoginForm";
+import UserCardList from "./components/UserCardList";
 
 function App() {
   // Timer state
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <h1>Day 2 Practice</h1>
+      <h1>Day 4 Practice</h1>
 
       <Counter />
 
@@ -29,6 +30,9 @@ function App() {
 
       <h2>Login</h2>
       <LoginForm />
+
+      <hr />
+      <UserCardList />
     </div>
   );
 }
