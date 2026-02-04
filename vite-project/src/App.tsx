@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+import Counter from "./components/Counter";
+import Timer from "./components/Timer";
+import LoginForm from "./components/LoginForm";
 
 function App() {
-  // Counter state
-  const [count, setCount] = useState(0);
-
   // Timer state
   const [seconds, setSeconds] = useState(0);
 
@@ -21,13 +21,14 @@ function App() {
     <div>
       <h1>Day 2 Practice</h1>
 
-      {/* Counter */}
-      <button onClick={() => setCount(count + 1)}>
-        Count: {count}
-      </button>
+      <Counter />
 
-      {/* Timer */}
-      <h2>Timer: {seconds} seconds</h2>
+      <Timer />
+
+      <hr />
+
+      <h2>Login</h2>
+      <LoginForm />
     </div>
   );
 }
