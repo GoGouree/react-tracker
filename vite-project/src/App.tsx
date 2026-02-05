@@ -1,40 +1,55 @@
-import { useState, useEffect } from "react";
+
 import Counter from "./components/Counter";
 import Timer from "./components/Timer";
 import LoginForm from "./components/LoginForm";
 import UserCardList from "./components/UserCardList";
+import { Navbar } from "./components/NavBar";
+import { Hero } from "./components/Hero";
+import "./App.css";
+
+
+
 
 function App() {
-  // Timer state
-  const [seconds, setSeconds] = useState(0);
-
-  // Timer effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((prev) => prev + 1);
-    }, 1000);
-
-    // Cleanup when App unmounts
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div>
-      <h1>Day 4 Practice</h1>
+    <div id="root">
+      {/* Header */}
+      <header style={{ marginBottom: 24 }}>
+        <h1 style={{ margin: 0, fontSize: '2.5rem', letterSpacing: 1 }}>React Tracker App</h1>
+      </header>
 
-      <Counter />
+      {/* Navbar */}
+      <Navbar />
 
-      <Timer />
+      {/* Hero Section */}
+      <Hero />
 
-      <hr />
+      {/* Main Content */}
+      <main style={{ marginTop: 32 }}>
+        <section style={{ marginBottom: 32 }}>
+          <h2>Counter & Timer</h2>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 32, flexWrap: 'wrap', marginTop: 16 }}>
+            <Counter />
+            <Timer />
+          </div>
+        </section>
 
-      <h2>Login</h2>
-      <LoginForm />
+        <section style={{ marginBottom: 32 }}>
+          <h2>Login</h2>
+          <LoginForm />
+        </section>
 
-      <hr />
-      <UserCardList />
+        <section>
+          <UserCardList />
+        </section>
+      </main>
+
+      <footer style={{ marginTop: 48, color: '#ee8cc9', fontSize: 14 }}>
+        &copy; {new Date().getFullYear()} React Tracker App
+      </footer>
     </div>
   );
 }
+
 
 export default App;
