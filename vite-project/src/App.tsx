@@ -5,6 +5,7 @@ import LoginForm from "./components/LoginForm";
 import UserCardList from "./components/UserCardList";
 import { Navbar } from "./components/NavBar";
 import { Hero } from "./components/Hero";
+import GitHubUserSearch from "./components/GitHubUserSearch";
 import "./App.css";
 
 
@@ -37,6 +38,10 @@ function App() {
         <section style={{ marginBottom: 32 }}>
           <h2>Login</h2>
           <LoginForm />
+        </section>
+
+        <section style={{ marginBottom: 32 }}>
+          <GitHubUserSearch />
         </section>
 
         <section>
